@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>View Tickets</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+       <div class="container">
+
+        
+
+
+        <div class="card">
+
+            <h2>All Tickets</h2>
+
+            <p id="ticketCount">
+                Loading...
+            </p>
+
+            <div id="adminTicketsContainer">
+                Loading tickets...
+            </div>
+
+            <div id="paginationInfo"></div>
+            <div id="paginationControls" class="pagination">
+                <button id="prevPageBtn" disabled>
+                    Previous
+                </button>
+
+                <div id="pageNumbers"></div>
+
+                <button id="nextPageBtn" disabled>
+                    Next
+                </button>
+            </div>
+
+        </div>
+        
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        
+
+    </div>
+
+    <script src="view.js"></script>
+
+</body>
+
+</html>
+

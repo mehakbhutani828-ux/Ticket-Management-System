@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Tickets</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Create Ticket</h1>
+
+            <form id="ticketForm">
+
+                <input
+                    type="text"
+                    id="ticketTitle"
+                    placeholder="Ticket title"
+                    required
+                >
+
+                <textarea
+                    id="ticketDescription"
+                    placeholder="Describe your problem"
+                    required
+                ></textarea>
+
+
+                <select id="ticketPriority">
+
+                    <option value="low">
+                        Low
+                    </option>
+
+                    <option value="medium" selected>
+                        Medium
+                    </option>
+
+                    <option value="high">
+                        High
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Create Ticket
+                </button>
+
+                   <div class="card">
+
+            <button id="backBtn">
+                Back to Dashboard
+            </button>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
+        </div>
+
+            </form>
+
+
+            <p id="ticketMessage"></p>
+
+        </div>
+
+
+        <!-- <div class="card">
+
+            <h1>My Tickets</h1>
+
+            <div id="ticketsContainer">
+                Loading tickets...
+            </div>
+
+        </div>
+
+
+     
+
+    </div> -->
+
+
+    <script src="ticket.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Tickets</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="user-view-page">
+
+    <div class="container">
+
+
+
+        <div class="card">
+
+            <h2>My Tickets</h2>
+
+            <p id="loadingMessage">
+                Loading tickets...
+            </p>
+
+            <p id="errorMessage"></p>
+
+            <p id="noTicketsMessage"
+               style="display: none;">
+                You have not created any tickets yet.
+            </p>
+
+
+            <div id="ticketsContainer">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                        </tr>
+
+                    </thead>          
+
+                    <tbody id="ticketsTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+            <button id="backBtn">
+                Back to Dashboard
+            </button>
+    </div>
+
+<!-- Ticket Details + Communication Modal -->
+
+<div id="customerTicketModal" class="modal">
+
+    <div class="modal-content">
+
+        <button
+            id="closeCustomerModalBtn"
+            class="close-btn">
+            ×
+        </button>
+
+        <h2 id="customerModalTitle">
+            Ticket Details
+        </h2>
+
+        <div class="ticket-details">
+
+            <p>
+                <strong>Description:</strong>
+            </p>
+
+            <p id="customerModalDescription"></p>
+
+            <p>
+                <strong>Priority:</strong>
+                <span id="customerModalPriority"></span>
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <span id="customerModalStatus"></span>
+            </p>
+
+            <p>
+                <strong>Assigned Agent:</strong>
+                <span id="customerModalAgent"></span>
+            </p>
+
+            <p>
+                <strong>Created:</strong>
+                <span id="customerModalCreated"></span>
+            </p>
+
+        </div>
+
+
+        <!-- Communication -->
+
+        <div class="communication-section">
+
+            <h3>Communication with Agent</h3>
+
+            <div
+                id="customerCommentsContainer"
+                class="comments-container">
+
+                <p>Loading messages...</p>
+
+            </div>
+
+
+            <div class="comment-input-container">
+
+                <textarea
+                    id="customerCommentInput"
+                    placeholder="Write a message to your agent..."
+                    rows="3"></textarea>
+
+                <button id="customerSendCommentBtn">
+                    Send Message
+                </button>
+
+            </div>
+
+            <p id="customerCommentMessage"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="userview.js"></script>
+
+</body>
+
+</html>

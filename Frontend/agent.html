@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>TicketSystem</h2>
+
+            <nav>
+                <a href="agent.html" class="active">Dashboard</a>
+                <a href="#" id="logoutBtn">Logout</a>
+                <a href="dashboard.html" id="backBtn">Back</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="dashboard-header">
+                <div>
+                    <h1>Agent Dashboard</h1>
+                    <p id="welcomeMessage">Welcome back!</p>
+                </div>
+            </header>
+
+            <!-- Dashboard Statistics -->
+            <section class="stats-container">
+
+                <div class="stat-card">
+                    <h3>Total Assigned</h3>
+                    <p id="totalAssigned">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Open</h3>
+                    <p id="openTickets">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>In Progress</h3>
+                    <p id="inProgressTickets">0</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3>Resolved</h3>
+                    <p id="resolvedTickets">0</p>
+                </div>
+
+            </section>
+
+            <!-- Ticket List -->
+            <section class="tickets-section">
+
+                <div class="section-header">
+
+                    <h2>My Assigned Tickets</h2>
+
+                    <div class="filter-container">
+
+                        <input type="text" id="searchInput" placeholder="Search tickets...">
+
+                        <select id="statusFilter">
+
+                            <option value="">
+                                All Statuses
+                            </option>
+
+                            <option value="open">
+                                Open
+                            </option>
+
+                            <option value="in_progress">
+                                In Progress
+                            </option>
+
+                            <option value="resolved">
+                                Resolved
+                            </option>
+
+                            <option value="closed">
+                                Closed
+                            </option>
+
+                        </select>
+
+                        <select id="priorityFilter">
+
+                            <option value="">
+                                All Priorities
+                            </option>
+
+                            <option value="low">
+                                Low
+                            </option>
+
+                            <option value="medium">
+                                Medium
+                            </option>
+
+                            <option value="high">
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div id="loadingMessage">Loading tickets...</div>
+
+                <div id="errorMessage" class="error-message"></div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ticket</th>
+                                <th>Customer</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="ticketsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+
+                    <button id="prevPageBtn">
+                        Previous
+                    </button>
+
+                    <div id="pageNumbers"></div>
+
+                    <button id="nextPageBtn">
+                        Next
+                    </button>
+
+                </div>
+
+                <p id="paginationInfo"></p>
+
+                <p id="noTicketsMessage" style="display: none;">
+                    No assigned tickets found.
+                </p>
+
+            </section>
+
+        </main>
+
+    </div>
+    <!-- Ticket Details Modal -->
+
+    <div id="ticketModal" class="modal">
+
+        <div class="modal-content">
+
+            <button id="closeModalBtn" class="close-btn">
+                ×
+            </button>
+
+            <h2 id="modalTicketTitle">
+                Ticket Details
+            </h2>                                                                                                                                                                                         <div class="ticket-details">
+
+                <p>
+                    <strong>Customer:</strong>
+                    <span id="modalCustomer"></span>
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    <span id="modalCustomerEmail"></span>
+                </p>
+
+                <p>
+                    <strong>Description:</strong>
+                </p>
+
+                <p id="modalDescription"></p>
+
+                <p>
+                    <strong>Priority:</strong>
+                    <span id="modalPriority"></span>
+                </p>
+
+                <p>
+                    <strong>Status:</strong>
+
+                    <select id="modalStatus">
+
+                        <option value="open">
+                            Open
+                        </option>
+
+                        <option value="in_progress">
+                            In Progress
+                        </option>
+
+                        <option value="resolved">
+                            Resolved
+                        </option>
+
+                        <option value="closed">
+                            Closed
+                        </option>
+
+                    </select>
+
+                </p>
+
+                <p>
+                    <strong>Created:</strong>
+                    <span id="modalCreatedAt"></span>
+                </p>
+
+            </div>
+
+            <button id="updateStatusBtn">
+                Update Status
+            </button>
+
+            <p id="modalMessage"></p>
+            <!-- Ticket Communication -->
+<div class="communication-section">
+
+    <h3>Ticket Communication</h3>
+
+    <div id="agentCommentsContainer" class="comments-container">
+        <p id="agentCommentsLoading">Loading messages...</p>
+        <p id="agentNoComments" style="display: none;">
+            No messages yet.
+        </p>
+    </div>
+
+    <div class="comment-input-container">
+
+        <textarea
+            id="agentCommentInput"
+            placeholder="Write a message to the customer..."
+            rows="3"
+        ></textarea>
+
+        <button id="agentSendCommentBtn">
+            Send Message
+        </button>
+
+    </div>
+
+    <p id="agentCommentMessage"></p>
+
+</div>
+
+        </div>
+
+    </div>
+    <script src="agent.js"></script>
+
+</body>
+
+</html>
